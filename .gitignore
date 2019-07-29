@@ -1,0 +1,15 @@
+.sass-cache/
+.vscode/
+node_modules/
+dist/css/
+dist/js/
+dist/json/
+dist/*.html
+dist/**/*.map
+dist/images/
+dist/fonts/icons/
+src/sass/vendor/font/_icons.scss
+dist/favicon.*
+_DS_Store
+__MACOSX/
+Thumbs.db

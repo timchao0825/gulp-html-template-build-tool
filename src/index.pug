@@ -1,0 +1,12 @@
+extends _layout
+block page_title
+  title Pug 模板 | 首頁
+block style
+  link(rel="stylesheet", href="css/index.min.css")
+block script
+  script(type="text/javascript" src="js/index.min.js")
+  script(type="text/javascript").
+block content
+  .main-wrap
+    p.text-center pug test test 123
+    //- i.be-icon.be-icon-arror-left

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+	<meta name="robots" content="noindex, nofollow,noarchive,nosnippet,noimageindex,noodp">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link rel="icon" type="image/ico" href="https://begonia-design.com.tw/images/favicon.ico">
+	<title>Icon Font - glyphs list</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="icons.css">
+	<link rel="stylesheet" href="iconfont-demo.css">
+</head>
+<body>
+<div class="wrapper" id="app">
+
+	<header id="header">
+		<div class="container">
+			<div class="hd-top">
+				<span class="t-title">使用說明文件：</span>
+				<a href="https://docs.google.com/document/d/1o-waHPhJDr3yPD8cfRazkEjcxA7Ho1SVKK8pNGNb9Ig/edit?usp=sharing" target="_blank" class="tooltip" data-title="限海棠設計員工讀取">gulp-iconfont 使用方式</a>
+			</div>
+			<div class="hd-center">
+				<h1 class="title">Icon Font<small class="t-tip"> - glyphs list</small></h1>
+				<div class="hd-gulptip">
+					<ul>
+						<li><span class="t-title">font-family:</span> "<%= fontName %>";</li>
+						<li><span class="t-title">Font class:</span> .<%= cssClass %></li>
+					</ul>
+					<p class="t-tip"><small>（於gulpfile.js調整設定）</small></p>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Main Container -->
+	<main class="container" id="main">
+		<!-- Show Type -->
+		<div class="list-type-wrapper" id="list-type-wrapper">
+			<ul class="list-type">
+				<li>
+					<input type="radio" name="showtype" id="show-tag" class="radiobox" value="tag" v-model="x" checked>
+					<label for="show-tag">顯示&lt;i&gt;</label>
+				</li>
+				<li>
+					<input type="radio" name="showtype" id="show-class" class="radiobox" value="class" v-model="x">
+					<label for="show-class">顯示class</label>
+				</li>
+			</ul>
+		</div>
+
+		<!-- List -->
+		<ul class="glyphs-list">
+			<% _.each(glyphs, function(icon){ %>
+			<li>
+				<i class="<%= cssClass %> <%= cssClass %>-<%= icon.name %>"></i>
+				<h4><%= icon.name %></h4>
+				<div class="input-item" v-if="x === 'tag'">
+					<input type="text" value="&lt;i class=&quot;<%= cssClass %> <%= cssClass %>-<%= icon.name %>&quot;&gt;&lt;/i&gt;" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<div class="input-item" v-if="x === 'class'">
+					<input type="text" value="<%= cssClass %> <%= cssClass %>-<%= icon.name %>" />
+					<button class="btn-copy">複製</button>
+				</div>
+				<p class="text-code"><span class="t-title">Unicode</span><code class="copy-unicode tooltip" data-title="複製 Unicode">\<%= icon.unicode[0].charCodeAt(0).toString(16) %></code></p>
+			</li>
+			<% }) %>
+		</ul>
+		<!-- /.End List -->
+	</main>
+
+	<footer id="footer">
+		© <%= fontYYYY %> 網頁設計的專家－ <a href="https://begonia-design.com.tw/" target="_blank">海棠網頁設計公司</a> ALL RIGHTS RESERVED
+	</footer>
+
+</div>
+<!-- /.End .wrapper -->
+
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script defer>
+	(function(window, document){
+		
+		// Create Element.remove() function if not exist
+		if (!('remove' in Element.prototype)) {
+			Element.prototype.remove = function() {
+				if (this.parentNode) {
+					this.parentNode.removeChild(this);
+				}
+			};
+		}
+
+		// Copy to Clipboard
+		var successMsg, clipTimer;
+
+		function addCopySuccess(){
+			if(successMsg == undefined){
+				successMsg = document.createElement('div');
+				successMsg.className = 'copysuctip';
+				successMsg.innerText = '複製成功';
+			}
+			document.body.appendChild(successMsg);
+
+			// Remove
+			clearTimeout(clipTimer);
+			clipTimer = null;
+			clipTimer = setTimeout(function(){
+				successMsg.remove();
+				clipTimer = null;
+			},3000);
+		}
+
+		var clipboard = new ClipboardJS('.btn-copy',{
+			target: function(el) {
+				return el.parentElement.querySelector('input');
+			}
+		});
+		clipboard.on('success', addCopySuccess);
+
+		var clipboard2 = new ClipboardJS('.copy-unicode',{
+			text: function(el) {
+				return el.innerText;
+			}
+		});
+		clipboard2.on('success', addCopySuccess);
+
+
+		// -----------------------------------
+		// Change Type (Vue)
+		new Vue({
+			el: '#app',
+			data: {
+				x: 'tag',
+			},
+		});
+
+		// -----------------------------------
+		// Scroll and fixed navigation
+
+		// Get Body Scroll Top (zh-Hant): http://www.eion.com.tw/Blogger/?Pid=1154
+		function getScrollTop(){
+			var bodyTop = 0;
+			if (typeof window.pageYOffset != "undefined") {
+				bodyTop = window.pageYOffset;
+
+			} else if (typeof document.compatMode != "undefined"
+						&& document.compatMode != "BackCompat") {
+				bodyTop = document.documentElement.scrollTop;
+
+			} else if (typeof document.body != "undefined") {
+				bodyTop = document.body.scrollTop;
+			}
+			return bodyTop
+		}
+
+		var showTypeWrapper = document.querySelector('#list-type-wrapper');
+		var showTypeWrapperOffsetTop = showTypeWrapper.getBoundingClientRect().top + getScrollTop();
+		function scrollNav(){
+			var ws = getScrollTop();
+			if(ws > showTypeWrapperOffsetTop){
+				showTypeWrapper.classList.add('is-fixed');
+			}else{
+				showTypeWrapper.classList.remove('is-fixed');
+			}
+		}
+		window.addEventListener('scroll', scrollNav);
+
+		// -----------------------------------
+		//IE old version tip
+		var userAgent = window.navigator.userAgent;  
+		if (userAgent.indexOf("MSIE 7.0")>0 || userAgent.indexOf("MSIE 8.0")>0 || userAgent.indexOf("MSIE 9.0")>0 || userAgent.indexOf("MSIE 10.0")>0) {
+			var ieTip = document.createElement('div');
+			ieTip.className = "ie-tip";
+
+			var ieTipSpan = document.createElement('span');
+			ieTipSpan.innerHTML = "不支援此版本瀏覽器，請開發者更換支援度較高之瀏覽器。<br><small>（用IE開發是要毀滅世界嗎？ಠ_ಠ）</small>";
+			ieTip.appendChild(ieTipSpan);
+
+			document.body.appendChild(ieTip);
+		}
+
+	})(window, document);
+</script>
+
+</body>
+
+</html>

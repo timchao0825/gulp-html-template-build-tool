@@ -1,0 +1,96 @@
+@charset "UTF-8";
+// @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+// @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+// --------------------------------------------------------
+/* Vendor Style*/
+// --------------------------------------------------------
+$color-black:#000;
+$color-white:#fff;
+// @include breakpoint(large down){}
+// @include breakpoint(medium down){}
+// @include breakpoint(small down){}
+p , option , span , button{
+	margin:0;font-size: 1rem;font-family: 'Noto Sans TC' , sans-serif;
+	&.bold{font-weight:bold;}
+	&.small{font-size:0.875rem;}
+	&.b_small{font-size:0.9375rem;}
+	&.middle{font-size:1.125rem;}
+	&.s_middle{font-size:1.25rem;}
+	&.big_middle{font-size:1.5rem;}
+	&.s_large{font-size:3rem;}
+	&.large{font-size:3.5rem;}
+	&.banner-txt{font-size:4rem;}
+}
+h1,h2,h3,h4,h5,h6{
+	margin:0;
+	letter-spacing: 1px;
+	&.bold{font-weight:bold;}
+}
+body{
+	position: relative;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+
+/* Reset Select */
+select , legend , input,[type="color"], [type="date"], [type="datetime-local"], [type="datetime"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], textarea{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+	background-image: none;
+	padding:0;
+	margin:0;
+}
+// Custom SVG IMG
+.svg{img{width:100%;}}
+
+// smooth scroll
+body, .smooth-container { scroll-behavior: smooth }
+
+// .notosans{
+// 	font-family: 'Noto Sans TC', sans-serif;
+// 	font-weight:400;
+// 	&.light{	font-weight:300;}
+// 	&.bold{	font-weight:700;}
+// }
+
+.mg0{margin:0 !important;}
+
+.lh1{line-height: 1;}
+
+.ls1{letter-spacing: 1px;}
+.ls2{letter-spacing: 2px;}
+.ls3{letter-spacing: 3px;}
+
+.uptxt{text-transform: uppercase;}
+
+// --------------------------------------------------------
+/* Container Style*/
+// --------------------------------------------------------
+body{
+	position: relative;
+	background:#f2e8e1;
+	color:$color-black;
+	// background-color: red;
+}
+header , footer , .main-wrap{
+	h2{text-align: center;}
+}
+// header{ border: 2px solid green; }
+// .main-wrap{
+// 	width: 100%;
+// 	height: calc(100% - 120px);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }

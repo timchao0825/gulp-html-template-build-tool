@@ -1,0 +1,11 @@
+<svg id="Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" width="11.29mm" height="7.77mm" viewBox="0 0 32 22.02">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>arrow</title>
+  <path id="Arrow_Forward" data-name="Arrow Forward" class="cls-1" d="M32,16a1.08,1.08,0,0,0-.29-.72l-9.9-10a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.42L28.59,15H1a1,1,0,0,0,0,2H28.59l-8.2,8.27a1,1,0,0,0,0,1.43,1,1,0,0,0,1.42,0l9.9-10A1.05,1.05,0,0,0,32,16Z" transform="translate(0 -5)"/>
+</svg>

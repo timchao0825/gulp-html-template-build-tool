@@ -1,0 +1,30 @@
+// Reference:  https://css-tricks.com/snippets/sass/strip-unit-function/
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+
+// Reference: http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+/// Transform unit from px to rem
+@function rem-calc($size) {
+	$remSize: $size / 16;
+	@return #{$remSize}rem;
+}
+@function em-calc($size) {
+	$emSize: $size / 16;
+	@return #{$emSize}em;
+}
+
+
+// Calculation
+@function breakpoint($size){
+	$emSize: em-calc(strip-unit($size));
+	@return $emSize;
+}
+

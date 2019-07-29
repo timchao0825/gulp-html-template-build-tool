@@ -1,0 +1,453 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Microsoft Jhenghei", Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, input, select, button, code {
+  font-family: Roboto, "Microsoft Jhenghei", Arial, sans-serif;
+}
+
+a {
+  color: #fc812f;
+}
+a:hover {
+  color: #f46404;
+}
+
+.wrapper {
+  height: auto !important;
+  min-height: 100%;
+  position: relative;
+}
+
+.container {
+  display: block;
+  max-width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+/* Text */
+.t-title {
+  color: #a2a2a2;
+}
+
+.t-tip {
+  color: #bfbfbf;
+  font-weight: normal;
+}
+
+/* Container */
+/* Header */
+#header {
+  position: static;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: auto;
+  background: #f8f8f8;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.hd-top {
+  font-size: 14px;
+  text-align: right;
+}
+
+.hd-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 31px;
+  margin-bottom: 40px;
+}
+.hd-center .title {
+  margin: 0;
+  font-size: 64px;
+  font-weight: normal;
+}
+.hd-center .title small {
+  font-size: 37.5%;
+  margin-left: 5px;
+}
+
+.hd-gulptip {
+  padding: 10px 15px;
+  background: #eeeeee;
+  border: 1px solid #e5e5e5;
+  min-width: 250px;
+  font-size: 14px;
+}
+.hd-gulptip ul {
+  margin: 0 0 4px;
+  padding: 0;
+  list-style: none;
+}
+.hd-gulptip p {
+  margin: 0;
+}
+.hd-gulptip .t-tip {
+  text-align: right;
+}
+
+/* Footer */
+#footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 12px;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  color: #ccc;
+  background: #333;
+}
+#footer a {
+  color: #ccc;
+  text-decoration: none;
+}
+#footer a:hover {
+  color: #fc812f;
+  text-decoration: underline;
+}
+
+/* Main */
+#main {
+  margin: 30px auto 0;
+}
+
+.glyphs-list {
+  margin: 0 -15px;
+  padding: 0 0 40px;
+  list-style: none;
+}
+.glyphs-list:before, .glyphs-list:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.glyphs-list li {
+  float: left;
+  width: 25%;
+  padding: 15px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.glyphs-list li:hover {
+  cursor: default;
+  background: #fafafa;
+}
+.glyphs-list i {
+  font-size: 48px;
+  line-height: 1;
+}
+.glyphs-list h4 {
+  margin: 8px 0 12px;
+  font-size: 20px;
+  font-weight: normal;
+}
+.glyphs-list .input-item {
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.glyphs-list input {
+  display: block;
+  margin-right: 3px;
+  padding: 10px 6px;
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  color: #a2a2a2;
+  font-size: 12px;
+}
+.glyphs-list button {
+  width: 50px;
+  font-size: 14px;
+  color: #a2a2a2;
+  background: #eeeeee;
+  border: 1px solid #dcdcdc;
+  cursor: pointer;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50px;
+          flex: 0 0 50px;
+}
+.glyphs-list button:hover {
+  background: #e6e6e6;
+  border-color: #c3c3c3;
+}
+.glyphs-list .text-code {
+  text-align: left;
+  font-size: 12px;
+}
+.glyphs-list .text-code .t-title {
+  margin-right: 10px;
+}
+.glyphs-list code {
+  margin: 16px 0 0;
+  cursor: pointer;
+}
+.glyphs-list code:hover {
+  color: #fc812f;
+}
+
+/* Alert */
+.copysuctip {
+  position: fixed;
+  z-index: 50;
+  top: 50%;
+  left: 50%;
+  margin-top: -18px;
+  margin-left: -44px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.9);
+  -webkit-animation: copysuctip_show 2s;
+          animation: copysuctip_show 2s;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+}
+
+@-webkit-keyframes copysuctip_show {
+  0%,
+100% {
+    opacity: 0;
+  }
+  25%,
+75% {
+    opacity: 1;
+  }
+}
+
+@keyframes copysuctip_show {
+  0%,
+100% {
+    opacity: 0;
+  }
+  25%,
+75% {
+    opacity: 1;
+  }
+}
+.tooltip {
+  position: relative;
+}
+.tooltip:before, .tooltip:after {
+  position: absolute;
+  left: 50%;
+  display: block;
+  pointer-events: none;
+  opacity: 0;
+}
+.tooltip:before {
+  content: attr(data-title);
+  bottom: -40px;
+  padding: 8px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 12px;
+  background: #333;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 5px;
+  text-decoration: none;
+}
+.tooltip:after {
+  content: "";
+  bottom: -11px;
+  margin-left: -8px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-bottom-color: #333333;
+  border-top-width: 0;
+}
+.tooltip:hover:before, .tooltip:hover:after {
+  opacity: 1;
+}
+
+/*Radio */
+.radiobox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radiobox + label {
+  position: relative;
+  margin-left: 0;
+  padding-left: 30px;
+  font-size: 1rem;
+  color: #a2a2a2;
+}
+.radiobox + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 99px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.radiobox + label:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.8em;
+  margin-top: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 9px;
+  background: #fc812f;
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.radiobox ~ .checked-info {
+  display: none;
+}
+.radiobox:checked + label {
+  cursor: default !important;
+}
+.radiobox:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, -0.5, 0.5, 2);
+          transition-timing-function: cubic-bezier(0.52, -0.5, 0.5, 2);
+}
+.radiobox:checked ~ .checked-info {
+  display: block;
+}
+.radiobox:not(:checked) + label:hover:before {
+  background: white;
+  border-color: #fc812f;
+}
+.radiobox:not(:checked) + label:hover:after {
+  opacity: 0.5;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+
+/* List Type */
+.list-type {
+  margin: 0 0 40px;
+  padding: 0;
+  list-style: none;
+  text-align: right;
+}
+.list-type:before, .list-type:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.list-type li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.list-type label {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.list-type input {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  height: 37px;
+  margin-bottom: 0;
+}
+.list-type .radiobox + label:before, .list-type .radiobox + label:after {
+  top: 0.6em;
+}
+.list-type .radiobox:checked + label {
+  color: #fc812f;
+}
+.list-type .radiobox:not(:checked) + label {
+  cursor: pointer;
+}
+
+.list-type-wrapper.is-fixed {
+  padding-top: 65px;
+}
+.list-type-wrapper.is-fixed .list-type {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 1170px;
+  max-width: 100%;
+  background: #fff;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.ie-tip {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.ie-tip span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.5;
+}
+.ie-tip small {
+  color: #999;
+}
+
+/* RWD */
+@media screen and (max-width: 39.9375em) {
+  .hd-center {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .hd-center .title {
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
+
+  .glyphs-list li {
+    width: 50%;
+  }
+}
+
+
+
+/*# sourceMappingURL=maps/iconfont-demo.css.map */

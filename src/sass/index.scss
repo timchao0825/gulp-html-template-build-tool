@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@import 'foundation/foundation';
+// --------------------------------------------------------
+/* Container Style*/
+// --------------------------------------------------------
+.main-wrap{
+  // color:$test; 
+  border:2px solid blue;
+  // background-color:green;
+  .box{
+    border:2px solid green;
+    display: inline-block;
+  }
+}// end main wrap
+// --------------------------------------------------------
+/* Animate Style*/
+// --------------------------------------------------------
+@keyframes test{
+
+}
+// margin:13[kwp[ajfk]];
