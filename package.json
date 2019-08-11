@@ -42,7 +42,7 @@
     "gulp-useref": "^3.1.6",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-jpeg-recompress": "^6.0.0",
-    "imagemin-pngquant": "^7.0.0"
+    "imagemin-pngquant": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",

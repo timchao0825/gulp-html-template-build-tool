@@ -69,6 +69,8 @@
 +	修改gulp-pug的task編譯方式，以及調整pug layout編譯方式
 2.JS 檔案 撰寫錯誤的時候將會停止JS編譯問題
 +	調整Babel編譯順序
+3.windows環境下，pngquant圖片壓縮會有 libpng 未下載錯誤訊息，並無法壓縮png檔案
++ npm imagemin pngquant 更新至 8.0.0版本後 windows 可以成功下載
 // --------------------------------------------------
 1.棄用gulp-ruby-sass，改使用gulp-sass
 +	新增gulp-sass^4.0.2
