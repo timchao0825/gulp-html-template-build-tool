@@ -301,7 +301,7 @@ function browsersyncReload(done) {
 function watchFiles() {
   watch(
     'src/sass/**/*.+(scss|sass)', 
-    series(sassDelCommend, sassExportVendor, sassCompile)
+    series(sassDelCommend, sassExportVendor, sassCompile,browsersyncReload)
   );
   watch(
     'src/js/**/*.js',
@@ -310,12 +310,12 @@ function watchFiles() {
   watch('src/images/**/*', image);
   watch('src/images/font_svg/*.svg', iconFont);
   watch('src/sass/vendor/font/templates/_icons.scss', iconFont);
-  watch(['src/*.pug' , '!src/_*.pug'] , page);
+  watch(['src/*.pug' , '!src/_*.pug'] , page ,browsersyncReload);
   watch(
     ['src/_*.pug'] ,
-    series(layoutPre, layoutAfter)
+    series(layoutPre, layoutAfter ,browsersyncReload)
   );
-  browserSync.watch('dist/*.html').on('change', browserSync.reload);
+  // browserSync.watch('dist/*.html').on('change', browserSync.reload);
 }
 
 // define complex tasks
