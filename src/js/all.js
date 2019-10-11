@@ -71,12 +71,11 @@ if (userAgent.indexOf("MSIE 7.0") > 0 || userAgent.indexOf("MSIE 8.0") > 0 || us
 	// 	});
 	// }
 
-	// window load 
-	$(window).on("load", function (e) {
-		
-	});
-	$(document).ready(function(){
+	// fast click
+	FastClick.attach(document.body); 
 
-	});
+	console.log('all js');
+
+
 	// end doc ready
 })(jQuery, window, document);

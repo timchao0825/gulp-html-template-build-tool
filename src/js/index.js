@@ -3,7 +3,6 @@ $(document).ready(function(){
 // con===============================================================================================
 // console.log('index js. here test test');
 // setTimeout(function(){ console.log('index es5 js.'); }, 3000);
-console.log('test 111 33333');
 // ===============================================================================================
 });/* end document */
 
