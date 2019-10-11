@@ -310,7 +310,10 @@ function watchFiles() {
   watch('src/images/**/*', image);
   watch('src/images/font_svg/*.svg', iconFont);
   watch('src/sass/vendor/font/templates/_icons.scss', iconFont);
-  watch(['src/*.pug' , '!src/_*.pug'] , page ,browsersyncReload);
+  watch(
+    ['src/*.pug' , '!src/_*.pug'] ,
+    series(page, browsersyncReload)
+  );
   watch(
     ['src/_*.pug'] ,
     series(layoutPre, layoutAfter ,browsersyncReload)
