@@ -21,6 +21,7 @@
 	* [imageminJpegRecompress](https://www.npmjs.com/package/imagemin-jpeg-recompress)
 * [Gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont)
   * [gulp-consolidate](https://www.npmjs.com/package/gulp-consolidate)
+* [Gulp-replace](https://www.npmjs.com/package/gulp-replace) 
 * [Gulp-rename](https://www.npmjs.com/package/gulp-rename)
 * [Gulp-changed](https://www.npmjs.com/package/gulp-changed)
 * [Gulp-notify](https://www.npmjs.com/package/gulp-notify)
@@ -63,6 +64,15 @@
 // NPM version V6.4.1
 // Gulp version v2.2.0
 // Gulp CLI version v4.0.2
+/ --------------------------------------------------
+// Gulp.js 2020/01修正列表
+1.js file 更動時，每次都會處理全部的js file檔案
++ 修正每次js file更動，單次更動只會處理單檔（增進編譯速度）
+
+// --------------------------------------------------
+// Gulp.js 2019/12修正列表
++ font icon 如果要和其他scss頁面使用時，提供變數的設置
+
 // --------------------------------------------------
 // Gulp.js 2019/07修正列表
 1.當 pug 頁面到達一定數量的時候，編譯速度將會大幅降低
@@ -70,7 +80,8 @@
 2.JS 檔案 撰寫錯誤的時候將會停止JS編譯問題
 +	調整Babel編譯順序
 3.windows環境下，pngquant圖片壓縮會有 libpng 未下載錯誤訊息，並無法壓縮png檔案
-+ npm imagemin pngquant 更新至 8.0.0版本後 windows 可以成功下載
++	npm imagemin pngquant 更新至 8.0.0版本後 windows 可以成功下載
+
 // --------------------------------------------------
 1.棄用gulp-ruby-sass，改使用gulp-sass
 +	新增gulp-sass^4.0.2
@@ -93,7 +104,7 @@
 +	支援哈巴狗ಠ_ಠ
 // -------------------------
 // 問題
-- 1.windows環境下，pngquant圖片壓縮會有 libpng 未下載錯誤訊息，並無法壓縮png檔案
-- 2.SASS編譯如果發生格式錯誤，目前只會顯示在終端機不會顯示在編譯後的網頁畫面
-+新增node sass 錯誤發生時，將會把錯誤訊息新增至頁面html上
+-	1.windows環境下，pngquant圖片壓縮會有 libpng 未下載錯誤訊息，並無法壓縮png檔案
+-	2.SASS編譯如果發生格式錯誤，目前只會顯示在終端機不會顯示在編譯後的網頁畫面
++	新增node sass 錯誤發生時，將會把錯誤訊息新增至頁面html上
 ```

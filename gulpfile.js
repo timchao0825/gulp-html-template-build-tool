@@ -4,6 +4,7 @@ const { src, dest, watch, series, parallel } = require('gulp');
 const rename = require('gulp-rename'), // 檔案重新命名
       notify = require('gulp-notify'), // 通知訊息
       del = require('del'), // 清除檔案
+      replace = require('gulp-replace'), // 取代文字
       sass = require('gulp-sass'), // [css] Sass 編譯
       autoprefixer = require('gulp-autoprefixer'), // [css] CSS自動前綴
       cleancss = require('gulp-clean-css'), // [css] CSS壓縮
@@ -69,8 +70,10 @@ function iconFont(){
 					fontPath: '',
 					fontDate: nowTime,
 					cssClass: fontClassName
-				}))
-				.pipe(rename({basename: "icons", extname: '.css'}))
+        }))
+        .pipe(replace(/\/\/ @include/g, '@include')) // 開啟@include
+				.pipe(rename({basename: "icons"}))
+				.pipe(sass({outputStyle: 'expanded'}))
 				.pipe( dest('dist/fonts/icons') );
 
 			// 生成 Demo CSS (Demo HTML使用)
@@ -304,8 +307,28 @@ function watchFiles() {
     series(sassDelCommend, sassExportVendor, sassCompile,browsersyncReload)
   );
   watch(
-    'src/js/**/*.js',
-    series(jsFile, jsVendor, jsVendorMin,browsersyncReload)
+    [
+      'src/js/**/*.js',
+      '!src/js/**/_*.js',
+      '!src/js/{vendor,lib,plugin,plugins,foundation}/**/*.*',
+    ],
+    // series(jsFile, jsVendor, jsVendorMin, browsersyncReload)
+    series(jsFile, browsersyncReload)
+  );
+  watch(
+    [
+      'src/js/{vendor,lib,plugin,plugins,foundation}/*.js',
+      '!src/js/{vendor,lib,plugin,plugins,foundation}/**/*.min.js',
+      '!src/js/{vendor,lib,plugin,plugins,foundation}/**/*-min.js',
+    ],
+    series(jsVendor, browsersyncReload)
+  );
+  watch(
+    [
+      'src/js/{vendor,lib,plugin,plugins,foundation}/**/*.min.js',
+      'src/js/{vendor,lib,plugin,plugins,foundation}/**/*-min.js',
+    ],
+    series(jsVendorMin, browsersyncReload)
   );
   watch('src/images/**/*', image);
   watch('src/images/font_svg/*.svg', iconFont);
