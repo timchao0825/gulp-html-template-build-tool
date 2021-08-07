@@ -3,16 +3,19 @@ html(lang='zh=TW')
   head
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no')
+    meta(
+      name='viewport',
+      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no'
+    )
     block page_title
     block style_vendor
-    link(rel="stylesheet", href="css/style.min.css")
+    link(rel='stylesheet', href='css/style.min.css')
     block style
   body
     include _header
-    block content 
+    block content
     include _footer
 
-    script(type="text/javascript" src="js/vendor/assets.min.js")
-    script(type="text/javascript" src="js/all.min.js")
+    script(type='text/javascript', src='js/vendor/assets.min.js')
+    script(type='text/javascript', src='js/all.min.js')
     block script

@@ -1,10 +1,7 @@
 
 @charset "UTF-8";
+@import "vendor/mixin";
 @import "vendor/function";
-
-//foundation
-@import 'foundation/foundation';
-@include foundation-everything;
 // --------------------------------------------------------
 /* Font Style*/
 // --------------------------------------------------------
@@ -17,3 +14,4 @@
 /* Page Style*/
 // --------------------------------------------------------
 @import "layout/layout";
+@import "./pages";

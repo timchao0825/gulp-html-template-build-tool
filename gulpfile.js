@@ -1,17 +1,15 @@
-// init plugin
-// const gulp = require("gulp");
 const { src, dest, watch, series, parallel } = require("gulp");
 const rename = require("gulp-rename"), // 檔案重新命名
   notify = require("gulp-notify"), // 通知訊息
   del = require("del"), // 清除檔案
   replace = require("gulp-replace"), // 取代文字
-  sass = require("gulp-sass"), // [css] Sass 編譯
+  sass = require("gulp-sass")(require("sass")), // [css] Sass 編譯
   autoprefixer = require("gulp-autoprefixer"), // [css] CSS自動前綴
   cleancss = require("gulp-clean-css"), // [css] CSS壓縮
   jshint = require("gulp-jshint"), // [JS] JS檢查錯誤
   uglify = require("gulp-uglify"), // [JS] 壓縮JS
   babel = require("gulp-babel"), // [JS] 轉換ES6為ES5，將ES6語法轉換成瀏覽器能讀的ES5
-  gulpif = require("gulp-if"), // 就是 if ಠ_ಠ
+  // gulpif = require("gulp-if"), // 就是 if ಠ_ಠ
   inject = require("gulp-inject-string"), // HTML 插入 code
   removeCode = require("gulp-remove-code"), // gulp 移除code
   imagemin = require("gulp-imagemin"), // [IMG] Image壓縮
@@ -24,6 +22,7 @@ const rename = require("gulp-rename"), // 檔案重新命名
   runSequence = require("run-sequence"),
   // extender = require('gulp-html-extend'), // [HTML] html 編譯 （HTML模板）
   pug = require("gulp-pug"), // [HTML / PUG] 編譯 PUG（PUG模板）
+  formatHtml = require('gulp-format-html'), // [HTML頁面排版] 將編譯過後的HTML排版
   sourcemaps = require("gulp-sourcemaps"), // [檔案追蹤] 來源編譯
   gulpIgnore = require("gulp-ignore"), // [例外處理] 無視指定檔案
   iconfont = require("gulp-iconfont"), // [ICON FONT] 編譯font檔案
@@ -34,7 +33,8 @@ const rename = require("gulp-rename"), // 檔案重新命名
 
 // font icon function
 const fontName = "icon",
-  fontClassName = "be-icon";
+  fontClassName = "icon";
+// local url => http://localhost:3000/fonts/icons/
 function iconFont() {
   return src(["src/images/font_svg/*.svg"], { base: "./src/" })
     .pipe(
@@ -144,8 +144,8 @@ function sassDisplayError(error) {
     .pipe(inject.after("</head>", error_msg))
     .pipe(dest("dist"));
 }
+
 // sass compiler
-sass.compiler = require("node-sass");
 function sassCompile() {
   return (
     src("src/sass/**/*.+(scss|sass)")
@@ -164,7 +164,7 @@ function sassCompile() {
         })
       )
       .pipe(autoprefixer("last 2 version", "ie 11", "ios 8", "android 4"))
-      .pipe(dest("dist/css"))
+      // .pipe(dest("dist/css"))
       .pipe(rename({ suffix: ".min" }))
       .pipe(cleancss({ rebase: false }))
       .pipe(
@@ -198,7 +198,7 @@ function image() {
           quality: "veryhigh",
           progressive: true,
           max: 75 /* 符合google speed 範疇 */,
-          min: 60,
+          min: 70,
         }),
         // [png] quality setting
         // 原設定數字：Type: Array<min: number, max: number>
@@ -234,7 +234,7 @@ function jsFile() {
         })
       )
       .pipe(gulpIgnore.exclude("vendor/**/*.*"))
-      .pipe(dest("dist/js"))
+      // .pipe(dest("dist/js"))
       .pipe(rename({ suffix: ".min" }))
       .pipe(uglify())
       .pipe(dest("dist/js"))
@@ -242,6 +242,7 @@ function jsFile() {
       .pipe(notify("JS Task Complete!"))
   );
 }
+
 // JS vendor compile
 function jsVendor() {
   return (
@@ -265,6 +266,7 @@ function jsVendor() {
       .pipe(notify("JS Plugin Task Complete!"))
   );
 }
+
 // JS Vendor Min compile
 function jsVendorMin() {
   return (
@@ -295,6 +297,7 @@ function layoutPre() {
     })
   );
 }
+
 function layoutAfter() {
   return (
     src(["src/*.pug", "!src/_*.pug"])
@@ -308,6 +311,7 @@ function layoutAfter() {
       .pipe(dest("dist"))
   );
 }
+
 function page() {
   return (
     src(["src/*.pug", "!src/_*.pug"])
@@ -327,6 +331,13 @@ function page() {
   );
 }
 
+function formatHTML(){
+  return (
+    src(["dist/*.html"])
+    .pipe(formatHtml({verbose:true}))
+  )
+}
+
 // clean file
 function clean() {
   return del(["dist"]);
@@ -343,11 +354,13 @@ function browsersyncInit(done) {
   });
   done();
 }
+
 // BrowserSync Reload
 function browsersyncReload(done) {
   browserSync.reload();
   done();
 }
+
 // watch file
 function watchFiles() {
   watch(
@@ -381,20 +394,21 @@ function watchFiles() {
   watch("src/images/**/*", image);
   watch("src/images/font_svg/*.svg", iconFont);
   watch("src/sass/vendor/font/templates/_icons.scss", iconFont);
-  watch(["src/*.pug", "!src/_*.pug"], series(page, browsersyncReload));
-  watch(["src/_*.pug"], series(layoutPre, layoutAfter, browsersyncReload));
-  // browserSync.watch('dist/*.html').on('change', browserSync.reload);
+  watch(["src/*.pug", "!src/_*.pug"], series(page, formatHTML,  browsersyncReload));
+  watch(["src/_*.pug"], series(layoutPre, layoutAfter, formatHTML,  browsersyncReload));
 }
 
 // define complex tasks
 const jsTask = series(jsFile, jsVendor, jsVendorMin);
 const cssTask = series(sassDelCommend, sassExportVendor, sassCompile);
 const htmlTask = series(layoutPre, layoutAfter);
+const formatHTMLTask = series(formatHTML);
 const watchTask = parallel(watchFiles, browsersyncInit);
 const buildTask = series(
   clean,
   parallel(iconFont, image, jsTask, cssTask, htmlTask),
-  watchTask
+  formatHTMLTask,
+  watchTask 
 );
 
 // export tasks

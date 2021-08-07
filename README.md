@@ -1,14 +1,22 @@
 ### 檔案相關 / File reference
 ---
-#### Main Frame
+In the project directory, you can run:
+
+#### `npm install`
+
+Install dependencies about this application.
+
+#### `gulp`
+
+#### Required
 * [Node JS](https://nodejs.org/en/) - Create build tool
 * [NPM](https://www.npmjs.com/) - Install tool package
 * [Gulp](https://gulpjs.com/) - Gulp tool official web site
-* [foundation 6.5.3](https://foundation.zurb.com) - this tool framework used (Free replacement)
-* [JQuery 3.2.1](https://code.jquery.com/jquery/) - JQuery Verison
+* [jQuery 3.6.0](https://code.jquery.com/jquery/) - JQuery Verison
 
-#### NPM package usege
+#### NPM package usage
 * [Gulp-pug](https://www.npmjs.com/package/gulp-pug)
+* [Gulp-formatHtml](https://www.npmjs.com/package/gulp-format-html)
 * [Gulp-sass](https://www.npmjs.com/package/gulp-sass) 
 	*  [Gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
 	*  [Gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
@@ -42,8 +50,6 @@
 範例：http://localhost:3000/fonts/icons/
 
 ##### SCSS
-* 網頁breakpoint（foundation framwork）：
-尺寸請看sass/foundation/setting/setting.scss
 * 整體項目設定包含：h1-h6字體、字級、顏色、breakpoint、主要顯示寬度範圍...等基礎設定，放在_layout.scss
 * 通用元素，一律放置於layout.sass or layout.scss，請參考layout/_layout.scss
 * 各別頁面內的通用元素，一樣置頂
@@ -54,27 +60,38 @@
 （沒壓縮或有壓縮檔皆可放置，Gulp編譯會自動判斷並產出.min檔案，所以js頁面載入時請統一載入壓縮.min檔）
 * JS檔案已兼容 ES6 以及 ES5 可在檔案內撰寫，Gulp編譯後會自動產生 ES5 語法
 
-
 ### 紀錄 / Record
 ---
 ```diff
 
 // 版本資訊
-// Node version v10.15.1
-// NPM version V6.4.1
-// Gulp version v2.2.0
-// Gulp CLI version v4.0.2
+// Node version v14.15.0
+// NPM version v6.14.0
+// Gulp version v4.0.2
+// Gulp CLI version v2.3.0
 / --------------------------------------------------
-// Gulp.js 2020/01修正列表
+// Gulp工具 2021 修正列表
+1.更新套件
++	更新套件至最新版本
+- 移除CSS Framework(foundation) | 不一定每個專案都會用
+2.新增產出後 HTML 自動格式化（beautify）
+3.將scss結構調整，拆分為全部_pages.scss include page資料夾內的檔案內容，使得檔案更容易找到 
+4.將產出的檔案（CSS , JS）都 uglify 處理過
+- （CSS , JS）將不在產出原始檔案
+5.新增Lint排版設定
++ 新增排版設定(Prettier , ESLint...)
+
+/ --------------------------------------------------
+// Gulp.js 2020/01 修正列表
 1.js file 更動時，每次都會處理全部的js file檔案
 +	修正每次js file更動，單次更動只會處理單檔（增進編譯速度）
 
 // --------------------------------------------------
-// Gulp.js 2019/12修正列表
+// Gulp.js 2019/12 修正列表
 +	font icon 如果要和其他scss頁面使用時，提供變數的設置
 
 // --------------------------------------------------
-// Gulp.js 2019/07修正列表
+// Gulp.js 2019/07 修正列表
 1.當 pug 頁面到達一定數量的時候，編譯速度將會大幅降低
 +	修改gulp-pug的task編譯方式，以及調整pug layout編譯方式
 2.JS 檔案 撰寫錯誤的時候將會停止JS編譯問題
@@ -83,6 +100,7 @@
 +	npm imagemin pngquant 更新至 8.0.0版本後 windows 可以成功下載
 
 // --------------------------------------------------
+// Gulp.js 2019 修正列表
 1.棄用gulp-ruby-sass，改使用gulp-sass
 +	新增gulp-sass^4.0.2
 -	移除gulp-ruby-sass（作者即將棄用；並不再更新）
@@ -98,10 +116,11 @@
 6.將browserSync更新，語法更新
 +	現在有更快的HTML/CSS/JS的編譯了，檔案修改存檔後會直接快速的reload
 -	移除每次存檔的網頁重新reload時間
-7.重新架構新版本foundation framwork , bootstrap framwork
+7.重新架構新版本foundation framework , bootstrap framework
 +	框架版本更新至官方最新版本
 8.PUG支援
 +	支援哈巴狗ಠ_ಠ
+
 // -------------------------
 // 問題
 -	1.windows環境下，pngquant圖片壓縮會有 libpng 未下載錯誤訊息，並無法壓縮png檔案

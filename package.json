@@ -1,10 +1,11 @@
 {
-  "name": "gulp4-map-build-tool",
+  "name": "gulp4-mpa-build-tool",
   "version": "1.0.0",
   "description": "建立此環境所需套件",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
   },
   "dependencies": {
     "del": "^3.0.0",
@@ -18,6 +19,7 @@
     "gulp-connect": "^5.5.0",
     "gulp-consolidate": "^0.2.0",
     "gulp-debug": "^4.0.0",
+    "gulp-format-html": "^1.2.5",
     "gulp-html-extend": "^1.1.6",
     "gulp-htmlmin": "^5.0.1",
     "gulp-iconfont": "^10.0.2",
@@ -36,7 +38,7 @@
     "gulp-remove-code": "^3.0.4",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "1.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^5.0.0",
     "gulp-sequence": "^1.0.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
@@ -44,14 +46,29 @@
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-pngquant": "^8.0.0",
-    "run-sequence": "^2.2.1"
+    "run-sequence": "^2.2.1",
+    "sass": "^1.37.5"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
+    "@prettier/plugin-pug": "^1.16.3",
+    "babel-eslint": "^10.1.0",
     "browser-sync": "^2.26.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
     "gulp-babel": "^8.0.0",
-    "jshint": "^2.10.1"
+    "jshint": "^2.10.1",
+    "prettier": "^2.3.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.2.0",
+    "stylelint-scss": "^3.20.1"
   },
   "author": "",
   "license": "MIT"
