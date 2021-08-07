@@ -1,5 +1,7 @@
 ### 檔案相關 / File reference
+
 ---
+
 In the project directory, you can run:
 
 #### `npm install`
@@ -9,59 +11,68 @@ Install dependencies about this application.
 #### `gulp`
 
 #### Required
-* [Node JS](https://nodejs.org/en/) - Create build tool
-* [NPM](https://www.npmjs.com/) - Install tool package
-* [Gulp](https://gulpjs.com/) - Gulp tool official web site
-* [jQuery 3.6.0](https://code.jquery.com/jquery/) - JQuery Verison
+
+- [Node JS](https://nodejs.org/en/) - Create build tool
+- [NPM](https://www.npmjs.com/) - Install tool package
+- [Gulp](https://gulpjs.com/) - Gulp tool official web site
+- [jQuery 3.6.0](https://code.jquery.com/jquery/) - JQuery Verison
 
 #### NPM package usage
-* [Gulp-pug](https://www.npmjs.com/package/gulp-pug)
-* [Gulp-formatHtml](https://www.npmjs.com/package/gulp-format-html)
-* [Gulp-sass](https://www.npmjs.com/package/gulp-sass) 
-	*  [Gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
-	*  [Gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
-* [Gulp-babel](https://www.npmjs.com/package/gulp-babel)
-	*  [gulp-jshint](https://www.npmjs.com/package/gulp-jshint)
-	*  [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
-* [Gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)
-	* [imageminPngquant](https://www.npmjs.com/package/imagemin-pngquant)
-	* [imageminGifsicle](https://www.npmjs.com/package/imagemin-gifsicle)
-	* [imageminJpegRecompress](https://www.npmjs.com/package/imagemin-jpeg-recompress)
-* [Gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont)
-  * [gulp-consolidate](https://www.npmjs.com/package/gulp-consolidate)
-* [Gulp-replace](https://www.npmjs.com/package/gulp-replace) 
-* [Gulp-rename](https://www.npmjs.com/package/gulp-rename)
-* [Gulp-changed](https://www.npmjs.com/package/gulp-changed)
-* [Gulp-notify](https://www.npmjs.com/package/gulp-notify)
-* [Gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
-* [Gulp-sourcemaps](https://www.npmjs.com/search?q=Gulp-sourcemaps)
-* [Gulp-inject-string](https://www.npmjs.com/package/gulp-inject-string)
-* [Gulp-remove-code](https://www.npmjs.com/package/gulp-remove-code)
-* [del](https://www.npmjs.com/package/del)
-* [Browser-sync](https://www.browsersync.io/)
+
+- [Gulp-pug](https://www.npmjs.com/package/gulp-pug)
+- [Gulp-formatHtml](https://www.npmjs.com/package/gulp-format-html)
+- [Gulp-sass](https://www.npmjs.com/package/gulp-sass)
+  - [Gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+  - [Gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
+- [Gulp-babel](https://www.npmjs.com/package/gulp-babel)
+  - [gulp-jshint](https://www.npmjs.com/package/gulp-jshint)
+  - [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
+- [Gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)
+  - [imageminPngquant](https://www.npmjs.com/package/imagemin-pngquant)
+  - [imageminGifsicle](https://www.npmjs.com/package/imagemin-gifsicle)
+  - [imageminJpegRecompress](https://www.npmjs.com/package/imagemin-jpeg-recompress)
+- [Gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont)
+  - [gulp-consolidate](https://www.npmjs.com/package/gulp-consolidate)
+- [Gulp-replace](https://www.npmjs.com/package/gulp-replace)
+- [Gulp-rename](https://www.npmjs.com/package/gulp-rename)
+- [Gulp-changed](https://www.npmjs.com/package/gulp-changed)
+- [Gulp-notify](https://www.npmjs.com/package/gulp-notify)
+- [Gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
+- [Gulp-sourcemaps](https://www.npmjs.com/search?q=Gulp-sourcemaps)
+- [Gulp-inject-string](https://www.npmjs.com/package/gulp-inject-string)
+- [Gulp-remove-code](https://www.npmjs.com/package/gulp-remove-code)
+- [del](https://www.npmjs.com/package/del)
+- [Browser-sync](https://www.browsersync.io/)
 
 ### 設置說明 / Setting info
+
 ---
+
 ##### HTML
-* 使用PUG生成（HTML template架構）<br>
-* 可使用自製 iconFont，詳細運用見Gulpfile.js
-<br>
-(參考iconfont生成後的html，請在網址列後加入/fonts/icons/)
-範例：http://localhost:3000/fonts/icons/
+
+- 使用 PUG 生成（HTML template 架構）<br>
+- 可使用自製 iconFont，詳細運用見 Gulpfile.js
+  <br>
+  (參考 iconfont 生成後的 html，請在網址列後加入/fonts/icons/)
+  範例：http://localhost:3000/fonts/icons/
 
 ##### SCSS
-* 整體項目設定包含：h1-h6字體、字級、顏色、breakpoint、主要顯示寬度範圍...等基礎設定，放在_layout.scss
-* 通用元素，一律放置於layout.sass or layout.scss，請參考layout/_layout.scss
-* 各別頁面內的通用元素，一樣置頂
+
+- 整體項目設定包含：h1-h6 字體、字級、顏色、breakpoint、主要顯示寬度範圍...等基礎設定，放在\_layout.scss
+- 通用元素，一律放置於 layout.sass or layout.scss，請參考 layout/\_layout.scss
+- 各別頁面內的通用元素，一樣置頂
 
 ##### JS
-* JS資料夾外層請放置各個頁面檔案配合JS
-* JS > vendor 裡頭請放置專案用的外掛或是套件檔案
-（沒壓縮或有壓縮檔皆可放置，Gulp編譯會自動判斷並產出.min檔案，所以js頁面載入時請統一載入壓縮.min檔）
-* JS檔案已兼容 ES6 以及 ES5 可在檔案內撰寫，Gulp編譯後會自動產生 ES5 語法
+
+- JS 資料夾外層請放置各個頁面檔案配合 JS
+- JS > vendor 裡頭請放置專案用的外掛或是套件檔案
+  （沒壓縮或有壓縮檔皆可放置，Gulp 編譯會自動判斷並產出.min 檔案，所以 js 頁面載入時請統一載入壓縮.min 檔）
+- JS 檔案已兼容 ES6 以及 ES5 可在檔案內撰寫，Gulp 編譯後會自動產生 ES5 語法
 
 ### 紀錄 / Record
+
 ---
+
 ```diff
 
 // 版本資訊
@@ -73,13 +84,13 @@ Install dependencies about this application.
 // Gulp工具 2021 修正列表
 1.更新套件
 +	更新套件至最新版本
-- 移除CSS Framework(foundation) | 不一定每個專案都會用
+-	移除CSS Framework(foundation) | 不一定每個專案都會用
 2.新增產出後 HTML 自動格式化（beautify）
-3.將scss結構調整，拆分為全部_pages.scss include page資料夾內的檔案內容，使得檔案更容易找到 
+3.將scss結構調整，拆分為全部_pages.scss include page資料夾內的檔案內容，使得檔案更容易找到
 4.將產出的檔案（CSS , JS）都 uglify 處理過
-- （CSS , JS）將不在產出原始檔案
+-	（CSS , JS）將不在產出原始檔案
 5.新增Lint排版設定
-+ 新增排版設定(Prettier , ESLint...)
++	新增排版設定(Prettier , ESLint...)
 
 / --------------------------------------------------
 // Gulp.js 2020/01 修正列表
