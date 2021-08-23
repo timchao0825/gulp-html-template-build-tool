@@ -63,6 +63,8 @@
     "gulp-babel": "^8.0.0",
     "jshint": "^2.10.1",
     "prettier": "^2.3.2",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^22.0.0",
