@@ -281,7 +281,7 @@ function jsVendorMin() {
 }
 
 function page() {
-  return src(['src/*.html'])
+  return src(['src/*.html', '!src/_*.html'])
     .pipe(extender({ annotations: false, verbose: false }))
     .pipe(formatHtml())
     .pipe(dest('dist'));
