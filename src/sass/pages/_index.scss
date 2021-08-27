@@ -1,32 +1,4 @@
 @charset "UTF-8";
-// --------------------------------------------------------
 
 /* Container Style */
 // --------------------------------------------------------
-
-.main-wrap {
-  border: 2px solid red;
-  @include breakpoint(small) {
-    border: 2px solid blue;
-  }
-}
-
-a {
-  color: #fff;
-}
-
-/* comment */
-
-.swiper-button-prev,
-.swiper-button-next {
-  left: 0;
-  position: relative;
-  right: 0;
-  margin: 0;
-}
-// --------------------------------------------------------
-
-/* Animate Style */
-// --------------------------------------------------------
-@keyframes test {
-}

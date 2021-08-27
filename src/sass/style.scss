@@ -1,17 +1,16 @@
-
 @charset "UTF-8";
-@import "vendor/mixin";
-@import "vendor/function";
+@import 'vendor/mixin';
+@import 'vendor/function';
+
+/* Font Style */
 // --------------------------------------------------------
-/* Font Style*/
+@import 'layout/font';
+
+/* Vendor Style */
 // --------------------------------------------------------
-@import "layout/font";
+@import 'vendor/font/icons';
+
+/* Page Style */
 // --------------------------------------------------------
-/* Vendor Style*/
-// --------------------------------------------------------
-@import "vendor/font/icons";
-// --------------------------------------------------------
-/* Page Style*/
-// --------------------------------------------------------
-@import "layout/layout";
-@import "./pages";
+@import 'layout/layout';
+@import './pages';
